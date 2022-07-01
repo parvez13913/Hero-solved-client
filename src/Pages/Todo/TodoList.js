@@ -2,6 +2,7 @@ import { Button } from 'react-bootstrap';
 import React from 'react';
 import FormCheckInput from 'react-bootstrap/esm/FormCheckInput';
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const TodoList = ({ todoList, setTodo, todo }) => {
     const { description, _id } = todoList;
@@ -16,6 +17,11 @@ const TodoList = ({ todoList, setTodo, todo }) => {
                 console.log(data);
                 const remaining = todo.filter(item => item._id !== id);
                 setTodo(remaining);
+            })
+
+        axios.post(`http://localhost:5000/completedTodo`, { description })
+            .then(res => {
+                console.log(res)
             })
     }
 

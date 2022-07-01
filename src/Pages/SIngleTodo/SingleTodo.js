@@ -15,6 +15,9 @@ const SingleTodo = () => {
         const url = `http://localhost:5000/todo/${id}`;
         fetch(url, {
             method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
             body: JSON.stringify(data)
         })
             .then(res => res.json())
