@@ -21,7 +21,7 @@ const Header = () => {
                     <Nav className="mx-auto">
                         <Nav.Link as={Link} to="/todo">Todo</Nav.Link>
                         <Nav.Link as={Link} to="/completed">Completed</Nav.Link>
-                        <Nav.Link href="#pricing">Calender</Nav.Link>
+                        <Nav.Link as={Link} to='/calender/:id'>Calender</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

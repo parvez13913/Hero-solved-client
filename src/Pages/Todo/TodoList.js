@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const TodoList = ({ todoList, setTodo, todo }) => {
-    const { description, _id } = todoList;
+    const { description, _id, date } = todoList;
     const handelCheckBox = id => {
         const url = `http://localhost:5000/todo/${id}`;
 
@@ -25,14 +25,19 @@ const TodoList = ({ todoList, setTodo, todo }) => {
             })
     }
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const handleEdit = id => {
         navigate(`/todo/${id}`)
+    }
+
+    const navigateToCalnder = id => {
+        navigate(`/calender/${id}`);
     }
 
 
     return (
         <div className='my-5 d-flex justify-content-around align-items-center border p-3 rounded'>
+
             <span>
                 <FormCheckInput onClick={() => handelCheckBox(_id)} aria-label="option 1" />
             </span>
@@ -40,6 +45,9 @@ const TodoList = ({ todoList, setTodo, todo }) => {
                 {description}
             </p>
             <Button onClick={() => handleEdit(_id)} variant="outline-warning">Edit</Button>
+            {
+                date ? <p><small className='text-primary'>{date}</small></p> : <Button onClick={() => navigateToCalnder(_id)} variant="outline-danger">Set Date</Button>
+            }
         </div>
     );
 };

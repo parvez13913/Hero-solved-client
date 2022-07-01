@@ -33,31 +33,29 @@ const SingleTodo = () => {
         return <Loading></Loading>
     }
 
-    if (todo) {
-        console.log(todo)
-    }
-
 
     return (
-        <div>
-            <h2>single todo: {id}</h2>
-            <h4>{todo.description}</h4>
+        <div className='container my-5 mx-auto'>
+            <h4 className='text-center'>{todo.description}</h4>
+            <div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <textarea
+                        className='my-2 p-2 w-100'
+                        type='text'
+                        placeholder='Enter Your Daily Tasks'
+                        {...register("description", {
+                            required: {
+                                value: true,
+                                message: 'Please edit',
+                            },
 
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <textarea
-                    className='my-2 p-2'
-                    type='text'
-                    placeholder='Enter Your Daily Tasks'
-                    {...register("description", {
-                        required: {
-                            value: true,
-                            message: 'Please edit',
-                        },
-
-                    })} />
-                {errors.description?.type === 'required' && <p className='text-danger'>{errors.description?.message}</p>}
-                <input className='my-2 p-2 rounded border-0 fw-bold btn-primary' value="Submit" type="submit" />
-            </form>
+                        })} />
+                    {errors.description?.type === 'required' && <p className='text-danger'>{errors.description?.message}</p>}
+                    <div>
+                        <input className='my-2 p-2 rounded border-0 fw-bold btn-primary w-100' value="Submit" type="submit" />
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };

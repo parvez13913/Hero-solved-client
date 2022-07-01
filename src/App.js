@@ -4,6 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import Todo from './Pages/Todo/Todo';
 import SingleTodo from './Pages/SIngleTodo/SingleTodo';
 import Completed from './Pages/Completed/Completed';
+import Calender from './Pages/Calender/Calender';
+import Footer from './Pages/Shared/Footer';
 
 function App() {
   return (
@@ -13,8 +15,10 @@ function App() {
         <Route path='/' element={<Todo />}></Route>
         <Route path='/todo' element={<Todo />}></Route>
         <Route path='/completed' element={<Completed />}></Route>
+        <Route path='/calender/:id' element={<Calender />}></Route>
         <Route path='/todo/:id' element={<SingleTodo></SingleTodo>}></Route>
       </Routes>
+      <Footer />
     </div>
   );
 }

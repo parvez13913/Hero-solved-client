@@ -33,7 +33,7 @@ const Todo = () => {
     return (
         <div className='container'>
             <div className="row">
-                <div className="col-12 col-lg-6 col-md-12 my-5 w-50">
+                <div className="col-12 col-lg-6 col-md-12 my-5">
                     <div className="border p-4 rounded">
                         <h1 className='text-center mt-2'>Daily Tasks</h1>
                         <Form onSubmit={handleAddTodo}>
@@ -46,7 +46,7 @@ const Todo = () => {
                         </Form>
                     </div>
                 </div>
-                <div className="col-12 col-lg-6 col-md-12 w-50">
+                <div className="col-12 col-lg-6 col-md-12">
                     {
                         todos.map(todoList => <TodoList
                             key={todoList._id}
