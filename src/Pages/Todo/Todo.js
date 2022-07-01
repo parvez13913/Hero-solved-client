@@ -1,22 +1,38 @@
-import { useForm } from "react-hook-form";
-import React from 'react';
 import UseTodo from "../../hooks/UseTodo";
 import TodoList from '../Todo/TodoList'
 import axios from "axios";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 const Todo = () => {
-    const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const [todo, setTodo] = UseTodo();
     const todos = [...todo].reverse();
-    const onSubmit = data => {
-        const description = data.description;
+
+    const handleAddTodo = event => {
+        event.preventDefault();
+        const description = event.target.description.value;
+        console.log(description);
         axios.post(`http://localhost:5000/todo`, { description })
             .then(res => {
-                // console.log(res);
-                // setTodo(description);
+                if (res.status === 200) {
+                    console.log("succed");
+                    event.target.reset()
+                }
             });
-        reset();
     }
+
+
+
+    const keyDownHandler = event => {
+        console.log('User pressed: ', event.key);
+
+        if (event.key === 'Enter') {
+            event.preventDefault();
+
+            handleAddTodo();
+        }
+    };
+
 
 
     return (
@@ -24,21 +40,15 @@ const Todo = () => {
             <div className="row">
                 <div className="col-12 col-lg-6 col-md-12">
                     <h1 className='text-center mt-5'>Daily Tasks</h1>
-                    <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
-                        <textarea
-                            className='my-2 p-2'
-                            type='description'
-                            placeholder='Enter Your Daily Tasks'
-                            {...register("description", {
-                                required: {
-                                    value: true,
-                                    message: 'Task is Required',
-                                },
-
-                            })} />
-                        {errors.description?.type === 'required' && <p className='text-danger'>{errors.description?.message}</p>}
-                        <input className='my-2 p-2 rounded border-0 fw-bold btn-primary' value="Submit" type="submit" />
-                    </form>
+                    <Form onSubmit={handleAddTodo}>
+                        <Form.Group className="mb-3" controlId="formBasicDescription">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control name="description" type="text" placeholder="" />
+                        </Form.Group>
+                        <Button onKeyDown={keyDownHandler} variant="primary" type="submit">
+                            Submits
+                        </Button>
+                    </Form>
                 </div>
                 <div className="col-12 col-lg-6 col-md-12">
                     {
