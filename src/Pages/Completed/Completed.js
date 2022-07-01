@@ -5,7 +5,7 @@ const Completed = () => {
     const [completedTodos, setCompletedTodos] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/completedTodo`)
+        fetch(`https://thawing-oasis-67072.herokuapp.com/completedTodo`)
             .then(res => res.json())
             .then(data => setCompletedTodos(data));
     }, [])

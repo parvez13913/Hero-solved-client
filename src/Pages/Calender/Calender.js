@@ -28,7 +28,7 @@ const Calender = () => {
     }
 
     const updateDate = id => {
-        const url = `http://localhost:5000/calender/${id}`;
+        const url = `https://thawing-oasis-67072.herokuapp.com/calender/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

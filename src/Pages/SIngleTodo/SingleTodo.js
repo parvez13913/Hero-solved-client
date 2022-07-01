@@ -11,7 +11,7 @@ const SingleTodo = () => {
 
     const onSubmit = data => {
         console.log(data)
-        const url = `http://localhost:5000/todo/${id}`;
+        const url = `https://thawing-oasis-67072.herokuapp.com/todo/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -26,7 +26,7 @@ const SingleTodo = () => {
         reset();
     }
 
-    const { data: todo, isLoading, refetch } = useQuery('id', () => fetch(`http://localhost:5000/todo/${id}`, {
+    const { data: todo, isLoading, refetch } = useQuery('id', () => fetch(`https://thawing-oasis-67072.herokuapp.com/todo/${id}`, {
         method: 'GET'
     }).then(res => res.json()))
     if (isLoading) {

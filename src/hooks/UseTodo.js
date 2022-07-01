@@ -4,7 +4,7 @@ const UseTodo = () => {
     const [todo, setTodo] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/todo`)
+        fetch(`https://thawing-oasis-67072.herokuapp.com/todo`)
             .then(res => res.json())
             .then(data => setTodo(data));
     }, []);

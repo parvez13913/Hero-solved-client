@@ -7,7 +7,7 @@ import axios from "axios";
 const TodoList = ({ todoList, setTodo, todo }) => {
     const { description, _id, date } = todoList;
     const handelCheckBox = id => {
-        const url = `http://localhost:5000/todo/${id}`;
+        const url = `https://thawing-oasis-67072.herokuapp.com/todo/${id}`;
 
         fetch(url, {
             method: 'DELETE'
@@ -19,7 +19,7 @@ const TodoList = ({ todoList, setTodo, todo }) => {
                 setTodo(remaining);
             })
 
-        axios.post(`http://localhost:5000/completedTodo`, { description })
+        axios.post(`https://thawing-oasis-67072.herokuapp.com/completedTodo`, { description })
             .then(res => {
                 // console.log(res)
             })

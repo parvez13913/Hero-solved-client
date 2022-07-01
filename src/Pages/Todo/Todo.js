@@ -11,7 +11,7 @@ const Todo = () => {
     const handleAddTodo = event => {
         event.preventDefault();
         const description = event.target.description.value;
-        axios.post(`http://localhost:5000/todo`, { description })
+        axios.post(`https://thawing-oasis-67072.herokuapp.com/todo`, { description })
             .then(res => {
                 if (res.status === 200) {
                     event.target.reset()
