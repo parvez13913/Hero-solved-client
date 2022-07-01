@@ -5,13 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const queryClient = new QueryClient()
 root.render(
   <BrowserRouter>
-    <React.StrictMode>
+    {/* <React.StrictMode>
       <App />
-    </React.StrictMode>
+    </React.StrictMode> */}
+    <QueryClientProvider client={queryClient}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </QueryClientProvider>
   </BrowserRouter>
 );
 
