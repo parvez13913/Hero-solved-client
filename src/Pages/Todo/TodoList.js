@@ -21,7 +21,7 @@ const TodoList = ({ todoList, setTodo, todo }) => {
 
         axios.post(`http://localhost:5000/completedTodo`, { description })
             .then(res => {
-                console.log(res)
+                // console.log(res)
             })
     }
 
