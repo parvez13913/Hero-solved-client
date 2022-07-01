@@ -6,6 +6,7 @@ import SingleTodo from './Pages/SIngleTodo/SingleTodo';
 import Completed from './Pages/Completed/Completed';
 import Calender from './Pages/Calender/Calender';
 import Footer from './Pages/Shared/Footer';
+import NotFound from './Pages/Shared/NotFound/NotFound';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/completed' element={<Completed />}></Route>
         <Route path='/calender/:id' element={<Calender />}></Route>
         <Route path='/todo/:id' element={<SingleTodo></SingleTodo>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer />
     </div>
