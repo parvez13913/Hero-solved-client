@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading/Loading';
-import Form from 'react-bootstrap/Form';
 import { useForm } from "react-hook-form";
 
 

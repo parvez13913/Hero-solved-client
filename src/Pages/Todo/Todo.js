@@ -10,11 +10,11 @@ const Todo = () => {
     const todos = [...todo].reverse();
     const onSubmit = data => {
         const description = data.description;
-
         axios.post(`http://localhost:5000/todo`, { description })
             .then(res => {
-                console.log(res)
-            })
+                // console.log(res);
+                // setTodo(description);
+            });
         reset();
     }
 
